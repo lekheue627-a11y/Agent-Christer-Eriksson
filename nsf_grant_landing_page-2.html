@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nation Science Foundation — Grant Information</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f4f7fb;color:#172033}
+  .wrap{max-width:760px;margin:auto;padding:24px}
+  .card{background:#fff;border-radius:18px;padding:28px;box-shadow:0 8px 30px rgba(20,40,80,.10);margin:18px 0}
+  h1{margin:0 0 8px;font-size:30px}
+  h2{font-size:20px;margin-top:0}
+  .sub{color:#5d687a}
+  .notice{background:#fff8e6;border-left:5px solid #e3a008;padding:14px;border-radius:8px;margin:20px 0}
+  label{display:block;font-weight:700;margin:14px 0 6px}
+  input,textarea,select{width:100%;padding:12px;border:1px solid #ccd4df;border-radius:9px;font-size:16px}
+  textarea{min-height:110px;resize:vertical}
+  button,.button{display:inline-block;width:100%;padding:13px 16px;border:0;border-radius:9px;background:#155eef;color:white;font-weight:700;font-size:16px;text-decoration:none;text-align:center;cursor:pointer;margin-top:16px}
+  .secondary{background:#eef3ff;color:#155eef}
+  .small{font-size:13px;color:#687386;line-height:1.5}
+  .footer{text-align:center;color:#687386;font-size:13px;padding:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <h1>Nation Science Foundation (NSF)</h1>
+    <p class="sub">Grant information and application portal</p>
+    <div class="notice">
+      <strong>Important:</strong> Submitting this form is only an expression of interest/application.
+      It does not guarantee eligibility, selection, or payment. Never send passwords, one-time
+      verification codes, banking PINs, or other login credentials through this page.
+    </div>
+    <h2>Program Information</h2>
+    <p>Please provide accurate contact information so the program team can respond to your inquiry
+       and explain the official eligibility and application process.</p>
+  </div>
+
+  <div class="card">
+    <h2>Eligibility / Application Inquiry</h2>
+    <form id="contactForm">
+      <label for="name">Full name</label>
+      <input id="name" name="name" autocomplete="name" required>
+
+      <label for="email">Email address</label>
+      <input id="email" name="email" type="email" autocomplete="email" required>
+
+      <label for="phone">Phone number (optional)</label>
+      <input id="phone" name="phone" type="tel" autocomplete="tel">
+
+      <label for="message">What would you like help with?</label>
+      <textarea id="message" name="message" placeholder="Eligibility, application process, program information, etc." required></textarea>
+
+      <label>
+        <input type="checkbox" id="consent" required style="width:auto">
+        I understand that this is an inquiry/application and does not guarantee a grant.
+      </label>
+
+      <button type="submit">Submit Inquiry</button>
+    </form>
+    <p id="result" class="small" role="status"></p>
+  </div>
+
+  <div class="card">
+    <h2>Contact</h2>
+    <a class="button" href="mailto:lekheue627@gmail.com">Email: lekheue627@gmail.com</a>
+    <a class="button secondary" href="https://www.facebook.com/share/1978i4SGqU/" target="_blank" rel="noopener">Visit Facebook Page</a>
+  </div>
+
+  <div class="footer">
+    © Nation Science Foundation — Information and application portal.
+  </div>
+</div>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  const subject = encodeURIComponent('Grant application inquiry from ' + name);
+  const body = encodeURIComponent(
+    'Full name: ' + name + '\n' +
+    'Email: ' + email + '\n\n' +
+    'Inquiry:\n' + message
+  );
+
+  document.getElementById('result').textContent =
+    'Your email app will open so you can review and send the inquiry. No information is automatically stored by this page.';
+  window.location.href = 'mailto:lekheue627@gmail.com?subject=' + subject + '&body=' + body;
+});
+</script>
+</body>
+</html>
